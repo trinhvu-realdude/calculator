@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.hcl.calculator;
 
-/**
- *
- * @author PC
- */
 public class Calculator extends javax.swing.JFrame {
 
     /**
@@ -43,29 +35,45 @@ public class Calculator extends javax.swing.JFrame {
         decimalBtn = new javax.swing.JButton();
         plusBtn = new javax.swing.JButton();
         equalBtn = new javax.swing.JButton();
-        percentBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
+        divideBtn1 = new javax.swing.JButton();
+        clearElementBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
         setLocation(new java.awt.Point(600, 250));
         setResizable(false);
 
+        input.setEditable(false);
         input.setFont(new java.awt.Font("Rockwell Nova Light", 0, 24)); // NOI18N
         input.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         input.setText("0");
+        input.setCaretColor(new java.awt.Color(242, 242, 242));
+        input.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         sevenBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         sevenBtn.setText("7");
         sevenBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sevenBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        sevenBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenBtnActionPerformed(evt);
+            }
+        });
 
         eightBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         eightBtn.setText("8");
         eightBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         eightBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        eightBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eightBtnActionPerformed(evt);
+            }
+        });
 
+        divideBtn.setBackground(new java.awt.Color(102, 102, 102));
         divideBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        divideBtn.setForeground(new java.awt.Color(255, 255, 255));
         divideBtn.setText("/");
         divideBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         divideBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -74,23 +82,45 @@ public class Calculator extends javax.swing.JFrame {
         nineBtn.setText("9");
         nineBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nineBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nineBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nineBtnActionPerformed(evt);
+            }
+        });
 
         fourBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         fourBtn.setText("4");
         fourBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fourBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fourBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fourBtnActionPerformed(evt);
+            }
+        });
 
         fiveBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         fiveBtn.setText("5");
         fiveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fiveBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fiveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveBtnActionPerformed(evt);
+            }
+        });
 
         sixBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         sixBtn.setText("6");
         sixBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sixBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        sixBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixBtnActionPerformed(evt);
+            }
+        });
 
+        multiplyBtn.setBackground(new java.awt.Color(102, 102, 102));
         multiplyBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        multiplyBtn.setForeground(new java.awt.Color(255, 255, 255));
         multiplyBtn.setText("x");
         multiplyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         multiplyBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -125,7 +155,9 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        minusBtn.setBackground(new java.awt.Color(102, 102, 102));
         minusBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        minusBtn.setForeground(new java.awt.Color(255, 255, 255));
         minusBtn.setText("-");
         minusBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         minusBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -145,7 +177,9 @@ public class Calculator extends javax.swing.JFrame {
         decimalBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         decimalBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        plusBtn.setBackground(new java.awt.Color(102, 102, 102));
         plusBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        plusBtn.setForeground(new java.awt.Color(255, 255, 255));
         plusBtn.setText("+");
         plusBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plusBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -157,13 +191,7 @@ public class Calculator extends javax.swing.JFrame {
         equalBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         equalBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        percentBtn.setBackground(new java.awt.Color(255, 0, 0));
-        percentBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        percentBtn.setForeground(new java.awt.Color(242, 242, 242));
-        percentBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        percentBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        clearBtn.setBackground(new java.awt.Color(255, 0, 0));
+        clearBtn.setBackground(new java.awt.Color(153, 0, 0));
         clearBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         clearBtn.setForeground(new java.awt.Color(242, 242, 242));
         clearBtn.setText("C");
@@ -172,6 +200,25 @@ public class Calculator extends javax.swing.JFrame {
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearBtnActionPerformed(evt);
+            }
+        });
+
+        divideBtn1.setBackground(new java.awt.Color(0, 102, 102));
+        divideBtn1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        divideBtn1.setForeground(new java.awt.Color(255, 255, 255));
+        divideBtn1.setText("%");
+        divideBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        divideBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        clearElementBtn.setBackground(new java.awt.Color(153, 0, 0));
+        clearElementBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        clearElementBtn.setForeground(new java.awt.Color(242, 242, 242));
+        clearElementBtn.setText("CE");
+        clearElementBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        clearElementBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        clearElementBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearElementBtnActionPerformed(evt);
             }
         });
 
@@ -192,18 +239,17 @@ public class Calculator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(sixBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(percentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(sevenBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(eightBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(nineBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearElementBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(divideBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sevenBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(eightBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nineBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(minusBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
@@ -240,9 +286,10 @@ public class Calculator extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(divideBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(percentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(divideBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clearElementBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(sevenBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,27 +324,93 @@ public class Calculator extends javax.swing.JFrame {
         if (input.getText().equals("0")) {
             input.setText("0");
         } else {
-            input.setText("0" + input.getText());
+            input.setText(input.getText() + "0");
         }
     }//GEN-LAST:event_zeroBtnActionPerformed
 
     private void oneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneBtnActionPerformed
-        input.setText(input.getText() + "1");
-        clearBtn.setText("CE");
+        if (input.getText().equals("0")) {
+            input.setText("1");
+        } else {
+            input.setText(input.getText() + "1");
+        }
     }//GEN-LAST:event_oneBtnActionPerformed
 
     private void twoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoBtnActionPerformed
-        input.setText(input.getText() + "2");
+        if (input.getText().equals("0")) {
+            input.setText("2");
+        } else {
+            input.setText(input.getText() + "2");
+        }
     }//GEN-LAST:event_twoBtnActionPerformed
 
     private void threeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeBtnActionPerformed
-        input.setText(input.getText() + "3");
+        if (input.getText().equals("0")) {
+            input.setText("3");
+        } else {
+            input.setText(input.getText() + "3");
+        }
     }//GEN-LAST:event_threeBtnActionPerformed
 
+    private void fourBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourBtnActionPerformed
+        if (input.getText().equals("0")) {
+            input.setText("4");
+        } else {
+            input.setText(input.getText() + "4");
+        }
+    }//GEN-LAST:event_fourBtnActionPerformed
+
+    private void fiveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveBtnActionPerformed
+        if (input.getText().equals("0")) {
+            input.setText("5");
+        } else {
+            input.setText(input.getText() + "5");
+        }
+    }//GEN-LAST:event_fiveBtnActionPerformed
+
+    private void sixBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixBtnActionPerformed
+        if (input.getText().equals("0")) {
+            input.setText("6");
+        } else {
+            input.setText(input.getText() + "6");
+        }
+    }//GEN-LAST:event_sixBtnActionPerformed
+
+    private void sevenBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenBtnActionPerformed
+        if (input.getText().equals("0")) {
+            input.setText("7");
+        } else {
+            input.setText(input.getText() + "7");
+        }
+    }//GEN-LAST:event_sevenBtnActionPerformed
+
+    private void eightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eightBtnActionPerformed
+        if (input.getText().equals("0")) {
+            input.setText("8");
+        } else {
+            input.setText(input.getText() + "8");
+        }
+    }//GEN-LAST:event_eightBtnActionPerformed
+
+    private void nineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nineBtnActionPerformed
+        if (input.getText().equals("0")) {
+            input.setText("9");
+        } else {
+            input.setText(input.getText() + "9");
+        }
+    }//GEN-LAST:event_nineBtnActionPerformed
+
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        input.setText("");
-        clearBtn.setText("C");
+        input.setText("0");
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void clearElementBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearElementBtnActionPerformed
+        if (input.getText().length() <= 1) {
+            input.setText("0");
+        } else {
+            input.setText(input.getText().substring(0, input.getText().length() - 1));
+        }
+    }//GEN-LAST:event_clearElementBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,8 +449,10 @@ public class Calculator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearBtn;
+    private javax.swing.JButton clearElementBtn;
     private javax.swing.JButton decimalBtn;
     private javax.swing.JButton divideBtn;
+    private javax.swing.JButton divideBtn1;
     private javax.swing.JButton eightBtn;
     private javax.swing.JButton equalBtn;
     private javax.swing.JButton fiveBtn;
@@ -347,7 +462,6 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton multiplyBtn;
     private javax.swing.JButton nineBtn;
     private javax.swing.JButton oneBtn;
-    private javax.swing.JButton percentBtn;
     private javax.swing.JButton plusBtn;
     private javax.swing.JButton sevenBtn;
     private javax.swing.JButton sixBtn;
