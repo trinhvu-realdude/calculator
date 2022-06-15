@@ -46,7 +46,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="clearElementBtn" min="-2" pref="57" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="divideBtn1" max="32767" attributes="0"/>
+                              <Component id="percentageBtn" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="sevenBtn" min="-2" pref="57" max="-2" attributes="0"/>
@@ -106,7 +106,7 @@
                       <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="divideBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="divideBtn1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="percentageBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="clearElementBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -132,9 +132,9 @@
                   <Component id="twoBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="plusBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="zeroBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="decimalBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
@@ -150,7 +150,7 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Rockwell Nova Light" size="24" style="0"/>
+          <Font name="Rockwell Nova Light" size="22" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="0"/>
@@ -209,6 +209,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="divideBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="nineBtn">
       <Properties>
@@ -287,6 +290,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="multiplyBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="oneBtn">
       <Properties>
@@ -350,6 +356,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="minusBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="zeroBtn">
       <Properties>
@@ -377,6 +386,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="decimalBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="plusBtn">
       <Properties>
@@ -395,6 +407,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plusBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="equalBtn">
       <Properties>
@@ -413,6 +428,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="equalBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="clearBtn">
       <Properties>
@@ -435,7 +453,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="divideBtn1">
+    <Component class="javax.swing.JButton" name="percentageBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
@@ -452,6 +470,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="percentageBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="clearElementBtn">
       <Properties>
