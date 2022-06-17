@@ -6,8 +6,10 @@ public class Calculator extends javax.swing.JFrame {
 
     private static int a;
     private static int b;
+    private static double c;
+    private static double d;
 
-    private static EOperation operation = EOperation.DEFAULT;
+    private EOperation operation = EOperation.DEFAULT;
 
     private static boolean isDecimal = false;
 
@@ -316,20 +318,19 @@ public class Calculator extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
                                 .addComponent(equalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
                         .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
                         .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(divideBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(percentageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,7 +359,7 @@ public class Calculator extends javax.swing.JFrame {
                         .addComponent(zeroBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(decimalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(equalBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -466,47 +467,97 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_clearElementBtnActionPerformed
 
     private void plusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusBtnActionPerformed
+        if (isDecimal) {
+            c = Double.parseDouble(input.getText());
+        } else {
+            a = Integer.parseInt(input.getText());
+        }
         operation = EOperation.PLUS;
-        a = Integer.parseInt(input.getText());
         input.setText("+");
     }//GEN-LAST:event_plusBtnActionPerformed
 
     private void minusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusBtnActionPerformed
+        if (isDecimal) {
+            c = Double.parseDouble(input.getText());
+        } else {
+            a = Integer.parseInt(input.getText());
+        }
         operation = EOperation.MINUS;
-        a = Integer.parseInt(input.getText());
         input.setText("-");
     }//GEN-LAST:event_minusBtnActionPerformed
 
     private void multiplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyBtnActionPerformed
+        if (isDecimal) {
+            c = Double.parseDouble(input.getText());
+        } else {
+            a = Integer.parseInt(input.getText());
+        }
         operation = EOperation.MULTIPLY;
-        a = Integer.parseInt(input.getText());
         input.setText("x");
     }//GEN-LAST:event_multiplyBtnActionPerformed
 
     private void divideBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideBtnActionPerformed
+        if (isDecimal) {
+            c = Double.parseDouble(input.getText());
+        } else {
+            a = Integer.parseInt(input.getText());
+        }
         operation = EOperation.DIVIDE;
-        a = Integer.parseInt(input.getText());
         input.setText("/");
     }//GEN-LAST:event_divideBtnActionPerformed
 
     private void equalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalBtnActionPerformed
-        b = Integer.parseInt(input.getText());
+        if (isDecimal) {
+            d = Double.parseDouble(input.getText());
+        } else {
+            b = Integer.parseInt(input.getText());
+        }
 
         switch (operation) {
             case PLUS:
-                input.setText(String.valueOf(calculate.plus(a, b)));
+                if (isDecimal) {
+                    input.setText(String.valueOf(calculate.plus(c, d)));
+                } else {
+                    isDecimal = false;
+                    input.setText(String.valueOf(calculate.plus(a, b)));
+                }
                 break;
 
             case MINUS:
-                input.setText(String.valueOf(calculate.minus(a, b)));
+                if (isDecimal) {
+                    input.setText(String.valueOf(calculate.minus(c, d)));
+                } else {
+                    isDecimal = false;
+
+                    input.setText(String.valueOf(calculate.minus(a, b)));
+                }
                 break;
 
             case MULTIPLY:
-                input.setText(String.valueOf(calculate.multiply(a, b)));
+                if (isDecimal) {
+                    input.setText(String.valueOf(calculate.multiply(c, d)));
+                } else {
+                    isDecimal = false;
+
+                    input.setText(String.valueOf(calculate.multiply(a, b)));
+                }
                 break;
 
             case DIVIDE:
-                input.setText(String.valueOf(calculate.divide(a, b)));
+                if (isDecimal) {
+                    input.setText(String.valueOf(calculate.plus(c, d)));
+                } else {
+                    if (a % b == 0) {
+                        isDecimal = false;
+                        input.setText(String.valueOf(calculate.divide(a, b)));
+                    } else {
+                        isDecimal = true;
+                        double c = Double.parseDouble(String.valueOf(a));
+                        double d = Double.parseDouble(String.valueOf(b));
+                        input.setText(String.valueOf(calculate.divide(c, d)));
+                    }
+                }
+
                 break;
 
             default:
