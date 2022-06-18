@@ -38,4 +38,11 @@ public class Calculate {
     public double percentage(double a) {
         return a / 100;
     }
+
+    public boolean isDecimal(String input) {
+        if (input.contains(".")) {
+            return true;
+        }
+        return false;
+    }
 }

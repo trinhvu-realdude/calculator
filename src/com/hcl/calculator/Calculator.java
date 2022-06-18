@@ -4,10 +4,8 @@ public class Calculator extends javax.swing.JFrame {
 
     private Calculate calculate = new Calculate();
 
-    private static int a;
-    private static int b;
-    private static double c;
-    private static double d;
+    private static double a;
+    private static double b;
 
     private EOperation operation = EOperation.DEFAULT;
 
@@ -467,102 +465,74 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_clearElementBtnActionPerformed
 
     private void plusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusBtnActionPerformed
-        if (isDecimal) {
-            c = Double.parseDouble(input.getText());
-        } else {
-            a = Integer.parseInt(input.getText());
-        }
         operation = EOperation.PLUS;
+        a = Double.parseDouble(input.getText());
         input.setText("+");
     }//GEN-LAST:event_plusBtnActionPerformed
 
     private void minusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusBtnActionPerformed
-        if (isDecimal) {
-            c = Double.parseDouble(input.getText());
-        } else {
-            a = Integer.parseInt(input.getText());
-        }
         operation = EOperation.MINUS;
+        a = Double.parseDouble(input.getText());
         input.setText("-");
     }//GEN-LAST:event_minusBtnActionPerformed
 
     private void multiplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyBtnActionPerformed
-        if (isDecimal) {
-            c = Double.parseDouble(input.getText());
-        } else {
-            a = Integer.parseInt(input.getText());
-        }
         operation = EOperation.MULTIPLY;
+        a = Double.parseDouble(input.getText());
         input.setText("x");
     }//GEN-LAST:event_multiplyBtnActionPerformed
 
     private void divideBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideBtnActionPerformed
-        if (isDecimal) {
-            c = Double.parseDouble(input.getText());
-        } else {
-            a = Integer.parseInt(input.getText());
-        }
         operation = EOperation.DIVIDE;
+        a = Double.parseDouble(input.getText());
         input.setText("/");
     }//GEN-LAST:event_divideBtnActionPerformed
 
     private void equalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalBtnActionPerformed
-        if (isDecimal) {
-            d = Double.parseDouble(input.getText());
-        } else {
-            b = Integer.parseInt(input.getText());
-        }
+        b = Double.parseDouble(input.getText());
+
+        int aInt = (int) a;
+        int bInt = (int) b;
 
         switch (operation) {
             case PLUS:
                 if (isDecimal) {
-                    input.setText(String.valueOf(calculate.plus(c, d)));
-                } else {
-                    isDecimal = false;
                     input.setText(String.valueOf(calculate.plus(a, b)));
+                } else {
+                    input.setText(String.valueOf(calculate.plus(aInt, bInt)));
                 }
                 break;
 
             case MINUS:
                 if (isDecimal) {
-                    input.setText(String.valueOf(calculate.minus(c, d)));
-                } else {
-                    isDecimal = false;
-
                     input.setText(String.valueOf(calculate.minus(a, b)));
+                } else {
+                    input.setText(String.valueOf(calculate.minus(aInt, bInt)));
                 }
                 break;
 
             case MULTIPLY:
                 if (isDecimal) {
-                    input.setText(String.valueOf(calculate.multiply(c, d)));
-                } else {
-                    isDecimal = false;
-
                     input.setText(String.valueOf(calculate.multiply(a, b)));
+                } else {
+                    input.setText(String.valueOf(calculate.multiply(aInt, bInt)));
                 }
                 break;
 
             case DIVIDE:
-                if (isDecimal) {
-                    input.setText(String.valueOf(calculate.plus(c, d)));
+                if (a % b == 0) {
+                    input.setText(String.valueOf(calculate.divide(a, b)));
                 } else {
-                    if (a % b == 0) {
-                        isDecimal = false;
-                        input.setText(String.valueOf(calculate.divide(a, b)));
-                    } else {
-                        isDecimal = true;
-                        double c = Double.parseDouble(String.valueOf(a));
-                        double d = Double.parseDouble(String.valueOf(b));
-                        input.setText(String.valueOf(calculate.divide(c, d)));
-                    }
+                    double c = Double.parseDouble(String.valueOf(a));
+                    double d = Double.parseDouble(String.valueOf(b));
+                    input.setText(String.valueOf(calculate.divide(c, d)));
                 }
-
                 break;
 
             default:
                 input.setText(input.getText());
         }
+        isDecimal = false;
     }//GEN-LAST:event_equalBtnActionPerformed
 
     private void decimalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalBtnActionPerformed
