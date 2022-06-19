@@ -2,19 +2,18 @@ package com.hcl.calculator;
 
 public class Calculator extends javax.swing.JFrame {
 
-    private Calculate calculate = new Calculate();
+    private Calculate calculate;
 
     private static double a;
     private static double b;
 
     private EOperation operation = EOperation.DEFAULT;
 
-    private static boolean isDecimal = false;
-
     /**
      * Creates new form Calculator
      */
     public Calculator() {
+        this.calculate = new Calculate();
         initComponents();
     }
 
@@ -357,7 +356,7 @@ public class Calculator extends javax.swing.JFrame {
                         .addComponent(zeroBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(decimalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(equalBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -491,52 +490,29 @@ public class Calculator extends javax.swing.JFrame {
     private void equalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalBtnActionPerformed
         b = Double.parseDouble(input.getText());
 
-        int aInt = (int) a;
-        int bInt = (int) b;
-
         switch (operation) {
             case PLUS:
-                if (isDecimal) {
-                    input.setText(String.valueOf(calculate.plus(a, b)));
-                } else {
-                    input.setText(String.valueOf(calculate.plus(aInt, bInt)));
-                }
+                input.setText(String.valueOf(calculate.plus(a, b)));
                 break;
 
             case MINUS:
-                if (isDecimal) {
-                    input.setText(String.valueOf(calculate.minus(a, b)));
-                } else {
-                    input.setText(String.valueOf(calculate.minus(aInt, bInt)));
-                }
+                input.setText(String.valueOf(calculate.minus(a, b)));
                 break;
 
             case MULTIPLY:
-                if (isDecimal) {
-                    input.setText(String.valueOf(calculate.multiply(a, b)));
-                } else {
-                    input.setText(String.valueOf(calculate.multiply(aInt, bInt)));
-                }
+                input.setText(String.valueOf(calculate.multiply(a, b)));
                 break;
 
             case DIVIDE:
-                if (a % b == 0) {
-                    input.setText(String.valueOf(calculate.divide(a, b)));
-                } else {
-                    double c = Double.parseDouble(String.valueOf(a));
-                    double d = Double.parseDouble(String.valueOf(b));
-                    input.setText(String.valueOf(calculate.divide(c, d)));
-                }
+                input.setText(String.valueOf(calculate.divide(a, b)));
                 break;
 
             default:
                 input.setText(input.getText());
         }
-        isDecimal = false;
     }//GEN-LAST:event_equalBtnActionPerformed
 
     private void decimalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalBtnActionPerformed
-        isDecimal = true;
         input.setText(input.getText() + ".");
     }//GEN-LAST:event_decimalBtnActionPerformed
 
